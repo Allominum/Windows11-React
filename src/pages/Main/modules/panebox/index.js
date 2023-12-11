@@ -56,8 +56,8 @@ const WinPanel = ({ config }) => {
                     <div className="content-head">
                         <span className="content-text">已经固定</span>
                         <button className="content-button">
-                            <span className="button-text" style={{ marginRight: "5px" }} onClick={isDeveloper}>所有应用</span>
-                            <svg t="1700983403861" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4054" width="10" height="10"><path d="M658.56 557.392L322.536 221.384l45.248-45.256 336.016 336.008z" p-id="4055" fill="#000000"></path><path d="M704.088 512.2L364.12 852.16l-45.256-45.248 339.976-339.976z" p-id="4056" fill="#000000"></path></svg>
+                            <span className="button-text not-allowTheme" style={{ marginRight: "5px" }} onClick={isDeveloper}>所有应用</span>
+                            <svg t="1700983403861" className="icon not-allowTheme" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4054" width="15" height="15"><path d="M658.56 557.392L322.536 221.384l45.248-45.256 336.016 336.008z" p-id="4055" fill="#ffffff"></path><path d="M704.088 512.2L364.12 852.16l-45.256-45.248 339.976-339.976z" p-id="4056" fill="#ffffff"></path></svg>
                         </button>
                     </div>
 
@@ -110,8 +110,8 @@ const WinPanel = ({ config }) => {
                     <div className="content-head" style={{ marginTop: "35px" }}>
                         <span className="content-text">推荐项目</span>
                         <button className="content-button">
-                            <span className="button-text" style={{ marginRight: "5px" }} onClick={isDeveloper}>所有应用</span>
-                            <svg t="1700983403861" className="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4054" width="10" height="10"><path d="M658.56 557.392L322.536 221.384l45.248-45.256 336.016 336.008z" p-id="4055" fill="#000000"></path><path d="M704.088 512.2L364.12 852.16l-45.256-45.248 339.976-339.976z" p-id="4056" fill="#000000"></path></svg>
+                            <span className="button-text not-allowTheme" style={{ marginRight: "5px" }} onClick={isDeveloper}>所有应用</span>
+                            <svg t="1700983403861" className="icon not-allowTheme" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="4054" width="15" height="15"><path d="M658.56 557.392L322.536 221.384l45.248-45.256 336.016 336.008z" p-id="4055" fill="#ffffff"></path><path d="M704.088 512.2L364.12 852.16l-45.256-45.248 339.976-339.976z" p-id="4056" fill="#ffffff"></path></svg>
                         </button>
                     </div>
 

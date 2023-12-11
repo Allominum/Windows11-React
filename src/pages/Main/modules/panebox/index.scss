@@ -188,13 +188,24 @@ div#windows11-winpanel {
             align-items: center;
 
             button.content-button {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                svg {
+                    margin-top: -1.5px;
+                }
+            }
+
+            button.content-button {
                 width: 90px;
                 height: 25px;
                 outline: none;
+                color: #ffffff;
                 margin-left: auto;
                 border-radius: 3px;
-                border: 1px solid #dddddd;
-                background-color: rgba(240, 240, 240, 0.333);
+                border: 1px solid #ad6eca;
+                background: linear-gradient(120deg, #ad6eca, #3b91d8);
             }
         }
 
