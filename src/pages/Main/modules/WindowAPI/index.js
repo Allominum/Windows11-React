@@ -46,7 +46,7 @@ const WindowHead = ({ name, icon, onApplication, onHeadClick }) => {
     return(
         <div className="window-head">
             <div className="icon-box" onDoubleClick={() => onHeadClick("max")}>
-                <img className="icon-sm" src={icon} alt={name} />
+                <img className="icon-sm" src={icon} alt={name} draggable="false"/>
             </div>
             <span className="window-name">{name}</span>
             <div className="move-box" onDoubleClick={() => onHeadClick("max")}></div>

@@ -61,23 +61,23 @@ div#windows11-panelbox {
                         width: 6rem;
                         height: 3rem;
                         cursor: pointer;
-                        transition: 0.5s;
-                        background-color: var(--bg2);
+                        transition: 1s;
                         border: solid 0.0063rem rgba(17,17,17,0.1);
+                        background: linear-gradient(120deg, rgba(255,255,255,0), rgba(255,255,255,0));
                     }
 
-                    div.item-check > i {
-                        width: 35%;
-                        height: 35%;
+                    div.item-check > svg {
+                        width: 40%;
+                        height: 40%;
                         margin: auto;
                         background-size: contain;
                     }
 
                     div.item-check.stateTure {
-                        transition: 0.5s;
-                        background-color: var(--panelboxColor3);
+                        border: 1px solid #ad6eca;
+                        background: linear-gradient(120deg, #ad6eca, #3b91d8);
 
-                        i {
+                        svg {
                             transition: 0.5s;
                             filter: invert(1);
                             -webkit-filter: invert(1);
@@ -99,13 +99,40 @@ div#windows11-panelbox {
                     align-items: center;
                     margin-bottom: 2.1875rem;
 
-                    input.input {
+                    /* 隐藏range控件默认样式 */
+                    input.input[type="range"] {
                         width: 100%;
-                        border: none;
                         outline: none;
                         height: 0.25rem;
-                        overflow: visible;
-                        background: transparent;
+                        appearance: none;
+                        margin-top: -15px;
+                        -webkit-appearance: none;
+                        background-color: transparent;
+                    }
+   
+                    /* 定义range控件轨道的样式 */
+                    input.input[type="range"]::-webkit-slider-runnable-track {
+                      height: 4px;
+                      background-color: #ffffffa0;
+                    }
+   
+                    /* 定义range控件容器的样式 */
+                    input.input[type="range" i]::-webkit-slider-container {
+                      height: 20px;
+                      overflow: hidden;
+                    }
+   
+                    /* 定义range控件拇指的样式 */
+                    input.input[type="range"]::-webkit-slider-thumb {
+                      width: 20px;
+                      height: 20px;
+                      appearance: none;
+                      margin-top: -8px;
+                      border-radius: 50%;
+                      -webkit-appearance: none;
+                      border: 1px solid transparent;
+                      background: linear-gradient(120deg, #ad6eca, #3b91d8);
+                      border-image: linear-gradient(#ad6eca, #3b91d8) 0 fill / 8 20 8 0 / 0px 0px 0 2000px;
                     }
 
                     div.icon-box {
