@@ -49,7 +49,7 @@ const MainLayout = () => {
     
     const openNotification = (placement,title,content) => {
         api.info({
-            duration: 3,
+            duration: 2,
             message: title,
             closeIcon: false,
             description: content,
