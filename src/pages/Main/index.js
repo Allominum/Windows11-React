@@ -314,7 +314,7 @@ const MainLayout = () => {
     return (
         <>
             {!mainReducer.mainStatus && <LoginLayout config={loginlayoutInfo} />}
-            <div id="frameelement-main" key="frameelement" className={`dark-theme-${mainReducer.darkThemeStatus}`} style={{ opacity: mainReducer.mainStatus ? mainReducer.batteryThemeStatus ? 0.65 : 1 : 0 }}>
+            <div id="frameelement-main" key="frameelement" className={`dark-theme-${mainReducer.darkThemeStatus}`} style={{ opacity: mainReducer.mainStatus ? mainReducer.batteryThemeStatus ? 0.75 : 1 : 0 }}>
                 {
                     windowStatus ? 
                     <Taskbar config={tasklayoutInfo} onWindowHeadMoudle={onWindowHeadMoudle} id={windowInfo.id} name={windowInfo.name} icon={windowInfo.icon} />

@@ -64,9 +64,15 @@ const PanelBox = ({ config }) => {
                 setSwitches({ ...switches, switch5: !switches["switch5"] });
                 break;
             case "switch-6":
-                config.onSwitch("darkTheme", !switches["switch5"]);
-                config.onSwitch("batteryTheme", !switches["switch4"]);
-                setSwitches({ ...switches, switch4: !switches["switch4"], switch5: !switches["switch5"] });
+                if (switches["switch4"] && switches["switch5"]) {
+                    config.onSwitch("darkTheme", false);
+                    config.onSwitch("batteryTheme", false);
+                    setSwitches({ ...switches, switch4: false, switch5: false });
+                } else {
+                    config.onSwitch("darkTheme", true);
+                    config.onSwitch("batteryTheme", true);
+                    setSwitches({ ...switches, switch4: true, switch5: true });
+                }
                 break;
             default:
                 break;

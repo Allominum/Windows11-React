@@ -12,7 +12,7 @@ https://win.react.yunair.cn/
 
 ## 项目截图
 
-![screenshot](https://i.postimg.cc/R4xssLJf/chuang-screenshot.png)
+![screenshot](https://i.postimg.cc/7ZG1KsGD/screenshot.png)
 
 ### 启动项目
 

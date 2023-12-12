@@ -21,7 +21,10 @@ import wallpaper14 from "../../../../image/wallpaper/ThemeD/img1.jpg"
 import wallpaper15 from "../../../../image/wallpaper/ThemeD/img2.jpg"
 import wallpaper16 from "../../../../image/wallpaper/ThemeD/img3.jpg"
 
-const wallpaperList = [wallpaper0,wallpaper1,wallpaper2,wallpaper3,wallpaper4,wallpaper5,wallpaper6,wallpaper7,wallpaper8,wallpaper9,wallpaper10,wallpaper11,wallpaper12,wallpaper13,wallpaper14,wallpaper15,wallpaper16]
+import wallpaper17 from "../../../../image/wallpaper/default/img1.jpg"
+import wallpaper18 from "../../../../image/wallpaper/default/img2.jpg"
+
+const wallpaperList = [wallpaper0,wallpaper1,wallpaper2,wallpaper3,wallpaper4,wallpaper5,wallpaper6,wallpaper7,wallpaper8,wallpaper9,wallpaper10,wallpaper11,wallpaper12,wallpaper13,wallpaper14,wallpaper15,wallpaper16,wallpaper17,wallpaper18]
 
 const OnMouseRightClick = ({ opacity, openSettingWindow, openDesktopRefresh, isDeveloper }) => {
 
@@ -51,7 +54,7 @@ const OnMouseRightClick = ({ opacity, openSettingWindow, openDesktopRefresh, isD
     const setWallpaper = () => {
         if (!status) {
             setStatus(true);
-            let wallIndex = Math.floor(Math.random() * (Math.floor(16) - Math.ceil(0) + 1)) + 0;
+            let wallIndex = Math.floor(Math.random() * (Math.floor(18) - Math.ceil(0) + 1)) + 0;
             document.documentElement.style.setProperty(`--background`, `url(${wallpaperList[wallIndex]})`);
             messageApi.open({
                 type: "success",

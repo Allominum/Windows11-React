@@ -2,7 +2,7 @@
 import ThemeTool from "../../pages/Main/themes"
 import { createSlice } from '@reduxjs/toolkit'
 import darkBackground from "../../image/wallpaper/dark/img0.jpg"
-import lighBackground from "../../image/wallpaper/default/img0.jpg"
+import lighBackground from "../../image/wallpaper/default/img1.jpg"
 const colorList = ThemeTool.colorList,darkTheme = ThemeTool.darkTheme,lightTheme = ThemeTool.lightTheme;
 
 window.addEventListener('resize',(event) => {  
@@ -46,13 +46,13 @@ const mainStore = createSlice({
         setDarkThemeStatus(state,action) {
             if (action.payload) {
                 for(let i in colorList) {
-                    document.documentElement.style.setProperty(`--background`, `url(${darkBackground})`);
-                    document.documentElement.style.setProperty(`--${colorList[i]}`, darkTheme[colorList[i]]);
+                    document.getElementById("root").style.setProperty(`--background`, `url(${darkBackground})`);
+                    document.getElementById("frameelement-main").style.setProperty(`--${colorList[i]}`, darkTheme[colorList[i]]);
                 }
             } else {
                 for(let i in colorList) {
-                    document.documentElement.style.setProperty(`--background`, `url(${lighBackground})`);
-                    document.documentElement.style.setProperty(`--${colorList[i]}`, lightTheme[colorList[i]]);
+                    document.getElementById("root").style.setProperty(`--background`, `url(${lighBackground})`);
+                    document.getElementById("frameelement-main").style.setProperty(`--${colorList[i]}`, lightTheme[colorList[i]]);
                 }
             }
             state.darkThemeStatus = action.payload;
