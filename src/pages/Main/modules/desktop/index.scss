@@ -37,7 +37,7 @@ div#windows11-desktop {
         -webkit-mask-composite: xor;
                 mask-composite: exclude;
         mask-clip: content-box,border-box;
-        background: linear-gradient(120deg, rgb(172, 110, 201)#3b91d8);
+        background: linear-gradient(120deg, rgb(172, 110, 201),#3b91d8);
         mask-image: linear-gradient(#ffffff 0 0),linear-gradient(#ffffff 0 0);
     }
 
