@@ -76,6 +76,28 @@ html {
         background-repeat: no-repeat;
     }
 
+    div#frameelement-main::before {
+        opacity: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: fixed;
+        z-index: 99999999999;
+    }
+
+    div#frameelement-main::before {
+        content: "";
+        top: 0;
+        left: 0;
+        pointer-events: none;
+        background: #ff00003b;
+        transition: all 2s ease;
+    }
+
+    div#frameelement-main.batteryTheme::before {
+        opacity: 0.5;
+    }
+
     div#frameelement-main.dark-theme-true {
         span,p,i,svg {
             transition: 0.5s;
