@@ -17,9 +17,12 @@ html {
     user-select: none;
     font-family: sans-serif;
 
-    a {
-        color: #3763A5;
+    a,.color-text {
+        font-weight: 700;
+        color: transparent;
+        background-clip: text;
         text-decoration: none;
+        background-image: linear-gradient(120deg, #ad6eca, #3b91d8);
     }
 
     i {
@@ -88,6 +91,14 @@ html {
         span.desapp-name {
             filter: invert(0);
             -webkit-filter: invert(0);
+        }
+
+        div.item-check {
+            border: 1px solid #999999!important;
+        }
+
+        div.item-check.stateTure {
+            border: 1px solid #ad6eca!important;
         }
 
         div#window-layout-resource-screen {

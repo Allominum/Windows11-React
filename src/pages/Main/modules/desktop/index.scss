@@ -25,8 +25,20 @@ div#windows11-desktop {
         position: absolute;
         border-radius: 0.2em;
         background: #ffffff30;
-        border: 2px solid #2983cc;
         transition: width 0.5s,height 0.5s;
+    }
+
+    span.desktop-select::before {
+        inset: 0;
+        content: "";
+        padding: 2.5px;
+        position: absolute;
+        border-radius: 0.2em;
+        -webkit-mask-composite: xor;
+                mask-composite: exclude;
+        mask-clip: content-box,border-box;
+        background: linear-gradient(120deg, rgb(172, 110, 201)#3b91d8);
+        mask-image: linear-gradient(#ffffff 0 0),linear-gradient(#ffffff 0 0);
     }
 
     div.desktop-apps {

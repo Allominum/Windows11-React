@@ -8,7 +8,7 @@ import deskappIcon6 from "../../../../image/application/chatgpt.png"
 import deskappIcon7 from "../../../../image/application/vue-color-avatar.png"
 import deskappIcon8 from "../../../../image/application/saolei.png"
 import deskappIcon9 from "../../../../image/icon/paint.png"
-import deskappIcon10 from "../../../../image/icon/windows11.png"
+import deskappIcon10 from "../../../../image/icon/home.png"
 
 import Windows11Layout from "../../application/windows11"
 import SettingWindowLayout from "../../application/settings"

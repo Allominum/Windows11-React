@@ -5,7 +5,7 @@ import { useState } from "react"
 import { Divider, Typography } from 'antd'
 
 import windows11 from "../../../../image/windows11.png"
-import windowsIcon from "../../../../image/icon/windows11.png"
+import windowsIcon from "../../../../image/icon/home.png"
 
 const Windows11Layout = () => {
     const [screen, setScreen] = useState(true);

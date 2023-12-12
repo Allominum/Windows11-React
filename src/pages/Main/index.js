@@ -25,7 +25,7 @@ import { notification, Modal, Button } from "antd"
 
 import StartUpMusic from "../../media/startup.mp3"
 import Windows11Layout from "./application/windows11"
-import deskappIcon10 from "../../image/icon/windows11.png"
+import deskappIcon10 from "../../image/icon/home.png"
 
 import { useSelector, useDispatch } from "react-redux"
 import { windowsHook } from "../../redux/modules/hookStore"
