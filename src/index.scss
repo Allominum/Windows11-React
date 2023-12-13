@@ -86,9 +86,9 @@ html {
     }
 
     div#frameelement-main::before {
-        content: "";
         top: 0;
         left: 0;
+        content: "";
         pointer-events: none;
         background: #ff00003b;
         transition: all 2s ease;
@@ -154,10 +154,6 @@ html {
 
             span.card-text {
                 color: #000000;
-            }
-
-            img.desktop-screen {
-                transform: scale(1.2);
             }
 
             div.ant-alert-message,div.ant-alert-description {

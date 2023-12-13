@@ -1,61 +1,19 @@
 
 import "./index.css"
-import { useState } from "react";
+import { useState } from "react"
+import wallpaper from "../wallpaper"
 import { Divider, message } from 'antd'
 
-import wallpaper0 from "../../../../image/wallpaper/default/img0.jpg"
-import wallpaper1 from "../../../../image/wallpaper/ThemeA/img0.jpg"
-import wallpaper2 from "../../../../image/wallpaper/ThemeA/img1.jpg"
-import wallpaper3 from "../../../../image/wallpaper/ThemeA/img2.jpg"
-import wallpaper4 from "../../../../image/wallpaper/ThemeA/img3.jpg"
-import wallpaper5 from "../../../../image/wallpaper/ThemeB/img0.jpg"
-import wallpaper6 from "../../../../image/wallpaper/ThemeB/img1.jpg"
-import wallpaper7 from "../../../../image/wallpaper/ThemeB/img2.jpg"
-import wallpaper8 from "../../../../image/wallpaper/ThemeB/img3.jpg"
-import wallpaper9 from "../../../../image/wallpaper/ThemeC/img0.jpg"
-import wallpaper10 from "../../../../image/wallpaper/ThemeC/img1.jpg"
-import wallpaper11 from "../../../../image/wallpaper/ThemeC/img2.jpg"
-import wallpaper12 from "../../../../image/wallpaper/ThemeC/img3.jpg"
-import wallpaper13 from "../../../../image/wallpaper/ThemeD/img0.jpg"
-import wallpaper14 from "../../../../image/wallpaper/ThemeD/img1.jpg"
-import wallpaper15 from "../../../../image/wallpaper/ThemeD/img2.jpg"
-import wallpaper16 from "../../../../image/wallpaper/ThemeD/img3.jpg"
-
-import wallpaper17 from "../../../../image/wallpaper/default/img1.jpg"
-import wallpaper18 from "../../../../image/wallpaper/default/img2.jpg"
-
-const wallpaperList = [wallpaper0,wallpaper1,wallpaper2,wallpaper3,wallpaper4,wallpaper5,wallpaper6,wallpaper7,wallpaper8,wallpaper9,wallpaper10,wallpaper11,wallpaper12,wallpaper13,wallpaper14,wallpaper15,wallpaper16,wallpaper17,wallpaper18]
-
 const OnMouseRightClick = ({ opacity, openSettingWindow, openDesktopRefresh, isDeveloper }) => {
-
-    /**
-     * 图片预加载，会导致很多问题，已禁用
-     */
-
-    // useEffect(() => {
-    //     const ImgLoaderTool = (url) => {
-    //         new Promise((resolve, reject) => {  
-    //             let ImgLoader = new Image();
-    //             ImgLoader.src = url;
-    //             ImgLoader.onload = () => resolve(ImgLoader);  
-    //             ImgLoader.onerror = reject;
-    //         });
-    //     }
-    //     const promises = wallpaperList.map(ImgLoaderTool)
-    //     Promise.all(promises)  
-    //     .then(imgs => imgs.forEach((img, index) => {
-    //         console.log("[图片预加载]主题壁纸-" + index + "加载完成！");
-    //     }))
-    // .catch(err => console.error(err));
-    // },[]);
     
     const [status, setStatus] = useState(false);
     const [messageApi, contextHolder] = message.useMessage();
     const setWallpaper = () => {
         if (!status) {
             setStatus(true);
-            let wallIndex = Math.floor(Math.random() * (Math.floor(18) - Math.ceil(0) + 1)) + 0;
-            document.documentElement.style.setProperty(`--background`, `url(${wallpaperList[wallIndex]})`);
+            let wallIndex = Math.floor(Math.random() * (Math.floor(11) - Math.ceil(0) + 1)) + 0;
+            console.log(wallpaper[wallIndex])
+            document.getElementById("root").style.setProperty(`--background`, `url(${wallpaper[wallIndex].path})`);
             messageApi.open({
                 type: "success",
                 style: {zIndex: 9999},

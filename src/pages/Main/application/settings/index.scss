@@ -170,6 +170,7 @@ div#window-layout-setting {
             li.list-item.item-active {
                 div.item-progress {
                     background-color: #3f4e5a;
+                    animation: itemChecked 0.5s ease-in-out;
                 }
             }
             
@@ -234,5 +235,26 @@ div#window-layout-setting-screen {
         height: 100px;
         margin: auto;
         border-radius: 5px;
+    }
+}
+
+@keyframes itemChecked {
+    0% {
+        height: 20px;
+    }
+    20% {
+        height: 60%;
+    }
+    40% {
+        height: 55%;
+    }
+    60% {
+        height: 40%;
+    }
+    80% {
+        height: 35%;
+    }
+    100% {
+        height: 20px;
     }
 }

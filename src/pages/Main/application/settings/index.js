@@ -10,6 +10,7 @@ import GameSettingList from "./Game/SettingList"
 import HomeBlueteethInfo from "./Home/Blueteeth"
 import HomeRecommonSetting from "./Home/Recommon"
 import LanguageTimeInfo from "./Language/TimeInfo"
+import WallpaperSetting from "./Personal/Wallpaper"
 import UpdateSettingList from "./Update/SettingList"
 import SystemSettingList from "./System/SettingList"
 import NetWorKSettingList from "./Network/SettingList"
@@ -88,7 +89,7 @@ const SettingCenterNotice = () => {
                 borderColor: "#999999",
                 background: "var(--currentColor)"
             }}
-            description="Windows设置中心目前正在施工中，这里的所有功能暂不可用，敬请期待哦！"
+            description="Windows设置中心目前正在施工中，这里的部分功能暂不可用，敬请期待哦！"
         />
     )
 }
@@ -132,10 +133,11 @@ const LayoutNetwork = ({ isDeveloper }) => {
     )
 }
 
-const LayoutPersonal = ({ isDeveloper }) => {
+const LayoutPersonal = ({ isDeveloper,id }) => {
     return (
         <div className="layout-content">
             <SettingCenterNotice/>
+            <WallpaperSetting id={id} />
             <PersonalSettingList isDeveloper={isDeveloper} />
         </div>
     )
@@ -217,7 +219,7 @@ const ContentLayout = ({ activeItem, isDeveloper }) => {
                     { item.id === 2 && <LayoutSystem isDeveloper={isDeveloper} /> }
                     { item.id === 3 && <LayoutBlueteeth isDeveloper={isDeveloper} /> }
                     { item.id === 4 && <LayoutNetwork isDeveloper={isDeveloper} /> }
-                    { item.id === 5 && <LayoutPersonal isDeveloper={isDeveloper} /> }
+                    { item.id === 5 && <LayoutPersonal isDeveloper={isDeveloper} id={activeItem} /> }
                     { item.id === 6 && <LayoutApps isDeveloper={isDeveloper} /> }
                     { item.id === 7 && <LayoutAccount isDeveloper={isDeveloper} /> }
                     { item.id === 8 && <LayoutLanguage isDeveloper={isDeveloper} /> }
