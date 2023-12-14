@@ -84,14 +84,14 @@ const ThemeSetting = ({ id }) => {
             <div className="color-box">
                 <Space>
                     <div className="color-space" style={{ display: "flex" }}>
-                        <span className="color-text" style={{ color: "#666666" }}>主色：</span>
-                        <ColorPicker showText value={colorReducer.dominColor} onChange={(color) => {
+                        <span className="color-text" style={{ color: "var(--dominColor)" }}>主色：</span>
+                        <ColorPicker showText value={colorReducer.dominColor} style={{ background: "none", borderColor: "var(--dominColor)" }} onChange={(color) => {
                             dispatch(setDominColor(color.toRgbString()));
                         }} presets={[{ label: '推荐主色', colors: recommandColor }]} />
                     </div>
                     <div className="color-space" style={{ display: "flex" }}>
-                        <span className="color-text" style={{ color: "#666666" }}>副色：</span>
-                        <ColorPicker showText value={colorReducer.seconColor} onChange={(color) => {
+                        <span className="color-text" style={{ color: "var(--seconColor)" }}>副色：</span>
+                        <ColorPicker showText value={colorReducer.seconColor} style={{ background: "none", borderColor: "var(--seconColor)" }} onChange={(color) => {
                             dispatch(setSeconColor(color.toRgbString()));
                         }} presets={[{ label: '推荐副色', colors: recommandColor }]} />
                     </div>
