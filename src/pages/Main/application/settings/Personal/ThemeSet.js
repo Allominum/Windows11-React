@@ -127,7 +127,7 @@ const ThemeSetting = ({ id }) => {
                 <Space wrap size="large" style={{ justifyContent: "space-around" }}>
                     {wallpaper.map(item => (
                         showStatus ? 
-                        <div className="wallpaper-box">
+                        <div key={item.id} className="wallpaper-box">
                             <Image key={item.id} width={"100%"} height={"100%"} src="error" style={{ borderRadius: "5px" }} fallback={item.path} preview={{
                             toolbarRender: (_,
                               {

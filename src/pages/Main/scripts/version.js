@@ -1,6 +1,6 @@
 
-const version = "2.0.1";
-const verslog = "版本更新日志：引入了Redux状态管理器进行状态管理并修复了开机和登录不能正常播放声音的问题。";
+const version = "2.1.0";
+const verslog = "版本更新日志：设置中心新增了主题与桌面背景设置，修改了默认的全局配色方案。";
 
 // eslint-disable-next-line
-export default { version: version,verslog: verslog }
+export default { version: version, verslog: verslog }

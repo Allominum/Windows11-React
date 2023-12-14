@@ -51,7 +51,7 @@ const SettingList = ({ activeItem, setActiveItem }) => {
     return (
         <ul className="setting-list">
             {settings.map(item => (
-                <li data-id={tabins} key={item.id} className={`list-item ${activeItem === item.id && "item-active"}`} onClick={() => setActiveItem(item.id)}>
+                <li id={`setting-menu-${item.id}`} data-id={tabins} key={item.id} className={`list-item ${activeItem === item.id && "item-active"}`} onClick={() => setActiveItem(item.id)}>
                     <div className="item-progress"></div>
                     <img className="item-icon" src={item.icon} alt={item.name}/>
                     <span className="item-name">{item.name}</span>
@@ -136,7 +136,7 @@ const LayoutNetwork = ({ isDeveloper }) => {
 const LayoutPersonal = ({ isDeveloper,id }) => {
     return (
         <div className="layout-content">
-            <SettingCenterNotice/>
+            {/* <SettingCenterNotice/> */}
             <ThemeSetting id={id} />
             <PersonalSettingList isDeveloper={isDeveloper} />
         </div>
@@ -215,7 +215,7 @@ const ContentLayout = ({ activeItem, isDeveloper }) => {
             {settings.map(item => (
                 <div data-id={tabins} key={item.id} id={`seeting-content-${item.id}`} className="seeting-content" style={{ position: activeItem === 1 ? "relative" : "absolute",marginTop: activeItem === item.id ? 0 : "100%", transition: activeItem === item.id && "0.5s" }}>
                     <PagesTitleBox name={item.name} />
-                    { item.id === 1 && <LayoutHome isDeveloper={isDeveloper} /> }
+                    { item.id === 1 && <LayoutHome isDeveloper={isDeveloper}/> }
                     { item.id === 2 && <LayoutSystem isDeveloper={isDeveloper} /> }
                     { item.id === 3 && <LayoutBlueteeth isDeveloper={isDeveloper} /> }
                     { item.id === 4 && <LayoutNetwork isDeveloper={isDeveloper} /> }
