@@ -177,10 +177,14 @@ div#windows11-sidebox {
                     background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
                 }
 
-                div.close-button > i,svg {
-                    width: 75%;
-                    height: 75%;
+                div.close-button > svg {
+                    width: 55%;
+                    height: 55%;
                     margin: auto;
+
+                    path {
+                        fill: var(--dominColor);
+                    }
                 }
 
                 a {

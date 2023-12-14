@@ -61,9 +61,7 @@ div#windows11-panelbox {
                         width: 6rem;
                         height: 3rem;
                         cursor: pointer;
-                        transition: 1s;
                         border: solid 0.0063rem rgba(17,17,17,0.1);
-                        background: linear-gradient(120deg, rgba(255,255,255,0), rgba(255,255,255,0));
                     }
 
                     div.item-check > svg {
@@ -73,9 +71,34 @@ div#windows11-panelbox {
                         background-size: contain;
                     }
 
+                    div.item-check {
+                        overflow: hidden;
+                        position: relative;
+                    }
+
+                    div.item-check::before {
+                        top: 100%;
+                        left: 100%;
+                        content: "";
+                    }
+
+                    div.item-check::before {
+                        z-index: -1;
+                        width: 150px;
+                        height: 200px;
+                        border-radius: 50%;
+                        position: absolute;
+                        transition: .3s all;
+                        background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
+                    }
+
                     div.item-check.stateTure {
                         border: 1px solid var(--dominColor);
-                        background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
+
+                        &::before {
+                            top: -30px;
+                            left: -30px;
+                        }
 
                         svg {
                             transition: 0.5s;
