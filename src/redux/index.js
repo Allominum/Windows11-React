@@ -4,6 +4,7 @@ import windReducer from "./modules/windStore"
 import hookReducer from "./modules/hookStore"
 import sadeReducer from "./modules/sadeStore"
 import timeReducer from "./modules/timeStore"
+import colorReducer from "./modules/colorStore"
 import loginReducer from "./modules/loginStore"
 
 import { configureStore } from "@reduxjs/toolkit"
@@ -15,6 +16,7 @@ const WinStore = configureStore({
         hookReducer: hookReducer,
         sadeReducer: sadeReducer,
         timeReducer: timeReducer,
+        colorReducer: colorReducer,
         loginReducer: loginReducer,
     }
 });

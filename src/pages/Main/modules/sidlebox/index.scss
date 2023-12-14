@@ -173,8 +173,8 @@ div#windows11-sidebox {
                     -webkit-mask-composite: xor;
                             mask-composite: exclude;
                     mask-clip: content-box,border-box;
-                    background: linear-gradient(120deg, #ad6eca, #3b91d8);
                     mask-image: linear-gradient(#ffffff 0 0),linear-gradient(#ffffff 0 0);
+                    background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
                 }
 
                 div.close-button > i,svg {

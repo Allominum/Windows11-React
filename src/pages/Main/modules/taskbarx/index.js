@@ -47,7 +47,7 @@ const Taskbar = ({ config, onWindowHeadMoudle, id, name, icon }) => {
 
                     <div className="task-search taskapps-search" onClick={isDeveloper}>
                         <div className="icon-box">
-                            <svg t="1688097016233" className="icon not-allowTheme" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2442" width="16" height="16"><path d="M674.8 196.2C538.6 60.1 315.2 64 184 208.1 65.4 338.3 68.5 543.6 190.7 670.4 312.7 797 508.1 807.6 642.8 703l211.8 211.6c16.6 16.5 43.4 16.5 59.9 0 16.6-16.5 16.6-43.3 0-59.9L702.7 643.1c103.5-132.8 94.4-324.8-27.9-446.9z m-31.9 386.1c-102.6 143-313 143-415.6 0-62.1-86.6-62.1-206.6 0-293.2 102.6-143 313-143 415.6 0 62.1 86.6 62.1 206.5 0 293.2z" fill="#ad6eca" p-id="2443"></path></svg>
+                            <svg t="1688097016233" className="icon not-allowTheme" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2442" width="16" height="16"><path d="M674.8 196.2C538.6 60.1 315.2 64 184 208.1 65.4 338.3 68.5 543.6 190.7 670.4 312.7 797 508.1 807.6 642.8 703l211.8 211.6c16.6 16.5 43.4 16.5 59.9 0 16.6-16.5 16.6-43.3 0-59.9L702.7 643.1c103.5-132.8 94.4-324.8-27.9-446.9z m-31.9 386.1c-102.6 143-313 143-415.6 0-62.1-86.6-62.1-206.6 0-293.2 102.6-143 313-143 415.6 0 62.1 86.6 62.1 206.5 0 293.2z" p-id="2443"></path></svg>
                         </div>
                         <input id="task-search-content" className="task-search-content" type="text" placeholder="搜索什么..."/>
                     </div>

@@ -74,8 +74,8 @@ div#windows11-panelbox {
                     }
 
                     div.item-check.stateTure {
-                        border: 1px solid #ad6eca;
-                        background: linear-gradient(120deg, #ad6eca, #3b91d8);
+                        border: 1px solid var(--dominColor);
+                        background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
 
                         svg {
                             transition: 0.5s;
@@ -131,8 +131,8 @@ div#windows11-panelbox {
                       border-radius: 50%;
                       -webkit-appearance: none;
                       border: 1px solid transparent;
-                      background: linear-gradient(120deg, #ad6eca, #3b91d8);
-                      border-image: linear-gradient(#ad6eca, #3b91d8) 0 fill / 8 20 8 0 / 0px 0px 0 2000px;
+                      background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
+                      border-image: linear-gradient(var(--dominColor), var(--seconColor)) 0 fill / 8 20 8 0 / 0px 0px 0 2000px;
                     }
 
                     div.icon-box {
@@ -182,16 +182,17 @@ div#windows11-panelbox {
                 width: 2.1875rem;
                 height: 2.1875rem;
 
-                svg,img {
+                svg {
                     width: 22px;
                     height: 22px;
                     margin: auto;
+                    fill: var(--dominColor);
                 }
             }
 
             span.footent-text {
-                color: #ad6eca;
                 font-weight: 400;
+                color: var(--dominColor);
             }
         }
     }

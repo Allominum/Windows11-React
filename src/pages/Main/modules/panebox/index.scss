@@ -204,8 +204,8 @@ div#windows11-winpanel {
                 color: #ffffff;
                 margin-left: auto;
                 border-radius: 3px;
-                border: 1px solid #ad6eca;
-                background: linear-gradient(120deg, #ad6eca, #3b91d8);
+                border: 1px solid var(--dominColor);
+                background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
             }
         }
 

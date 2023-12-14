@@ -5,12 +5,12 @@ import UserInfo from "../../scripts/users"
 import { Input, message, Alert } from 'antd'
 import settings from "../../scripts/settings"
 import HomeWindowsInfo from "./Home/HomeInfo"
+import ThemeSetting from "./Personal/ThemeSet"
 import AppSettingList from "./Apps/SettingList"
 import GameSettingList from "./Game/SettingList"
 import HomeBlueteethInfo from "./Home/Blueteeth"
 import HomeRecommonSetting from "./Home/Recommon"
 import LanguageTimeInfo from "./Language/TimeInfo"
-import WallpaperSetting from "./Personal/Wallpaper"
 import UpdateSettingList from "./Update/SettingList"
 import SystemSettingList from "./System/SettingList"
 import NetWorKSettingList from "./Network/SettingList"
@@ -137,7 +137,7 @@ const LayoutPersonal = ({ isDeveloper,id }) => {
     return (
         <div className="layout-content">
             <SettingCenterNotice/>
-            <WallpaperSetting id={id} />
+            <ThemeSetting id={id} />
             <PersonalSettingList isDeveloper={isDeveloper} />
         </div>
     )

@@ -1,16 +1,20 @@
 
-import "./wallpaper.css"
+import "./ThemeSet.css"
 
 import { useEffect, useState } from "react"
 import wallpaper from "../../../scripts/wallpaper"
-import { Image, Space, Skeleton, message, Typography, Divider, Tag } from 'antd'
+import { useSelector, useDispatch } from "react-redux"
+import { Image, Space, Skeleton, message, Typography, Divider, Tag, ColorPicker, Button } from 'antd'
+import { setDominColor, setSeconColor, resetDominColor, resetSeconColor } from "../../../../../redux/modules/colorStore"
 import { DownloadOutlined, RotateLeftOutlined, RotateRightOutlined, SwapOutlined, ZoomInOutlined, ZoomOutOutlined, AppstoreOutlined } from '@ant-design/icons'
 
-const WallpaperSetting = ({ id }) => {
+const ThemeSetting = ({ id }) => {
 
+    const dispatch = useDispatch();
     const { Title, Paragraph } = Typography;
     const [showStatus, setShowStatus] = useState(false);
     const [messageApi, contextHolder] = message.useMessage();
+    const colorReducer = useSelector( state => state.colorReducer );
 
     useEffect(() => {
         if (id === 5) {
@@ -35,17 +39,92 @@ const WallpaperSetting = ({ id }) => {
           });
       };
 
+      const recommandColor = [
+        '#000000',
+        '#000000E0',
+        '#000000A6',
+        '#00000073',
+        '#00000040',
+        '#00000026',
+        '#0000001A',
+        '#00000012',
+        '#0000000A',
+        '#00000005',
+        '#F5222D',
+        '#FA8C16',
+        '#FADB14',
+        '#8BBB11',
+        '#52C41A',
+        '#13A8A8',
+        '#1677FF',
+        '#2F54EB',
+        '#722ED1',
+        '#EB2F96',
+        '#F5222D4D',
+        '#FA8C164D',
+        '#FADB144D',
+        '#8BBB114D',
+        '#52C41A4D',
+        '#13A8A84D',
+        '#1677FF4D',
+        '#2F54EB4D',
+        '#722ED14D',
+        '#EB2F964D',
+    ];
+
     return (
         <>
+            {contextHolder}
             <Paragraph style={{ marginTop: "10px", marginBottom: "-5px" }}>
                 <blockquote>
                     <Title level={3}>主题和背景</Title>
                 </blockquote>
             </Paragraph><Divider />
+
+            <div className="color-box">
+                <Space>
+                    <div className="color-space" style={{ display: "flex" }}>
+                        <span className="color-text" style={{ color: "#666666" }}>主色：</span>
+                        <ColorPicker showText value={colorReducer.dominColor} onChange={(color) => {
+                            dispatch(setDominColor(color.toRgbString()));
+                        }} presets={[{ label: '推荐主色', colors: recommandColor }]} />
+                    </div>
+                    <div className="color-space" style={{ display: "flex" }}>
+                        <span className="color-text" style={{ color: "#666666" }}>副色：</span>
+                        <ColorPicker showText value={colorReducer.seconColor} onChange={(color) => {
+                            dispatch(setSeconColor(color.toRgbString()));
+                        }} presets={[{ label: '推荐副色', colors: recommandColor }]} />
+                    </div>
+                    <Button style={{ height: "30px", marginLeft: "10px", background: "none", borderColor: "var(--dominColor)", color: "var(--dominColor)" }} onClick={() => {
+                        dispatch(resetDominColor());
+                        messageApi.open({
+                            type: "success",
+                            style: {zIndex: 9999},
+                            content: "重置主色成功！",
+                        });
+                    }} danger>重置主色</Button>
+                    <Button style={{ height: "30px", marginLeft: "10px", background: "none", borderColor: "var(--seconColor)", color: "var(--seconColor)" }} onClick={() => {
+                        dispatch(resetSeconColor());
+                        messageApi.open({
+                            type: "success",
+                            style: {zIndex: 9999},
+                            content: "重置副色成功！",
+                        });
+                    }} danger>重置副色</Button>
+                    <Button style={{ height: "30px", marginLeft: "10px", background: "none" }} onClick={() => {
+                        dispatch(resetDominColor());
+                        dispatch(resetSeconColor());
+                        messageApi.open({
+                            type: "success",
+                            style: {zIndex: 9999},
+                            content: "重置所有颜色成功！",
+                        });
+                    }} danger>重置所有</Button>
+                </Space>
+            </div><Divider />
             
             <div className="wallpaper-list">
                 <Space wrap size="large" style={{ justifyContent: "space-around" }}>
-                    {contextHolder}
                     {wallpaper.map(item => (
                         showStatus ? 
                         <div className="wallpaper-box">
@@ -93,4 +172,4 @@ const WallpaperSetting = ({ id }) => {
     )
 }
 
-export default WallpaperSetting
+export default ThemeSetting

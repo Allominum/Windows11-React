@@ -89,8 +89,8 @@ div#windows11-taskbar {
             -webkit-mask-composite: xor;
                     mask-composite: exclude;
             mask-clip: content-box,border-box;
-            background: linear-gradient(120deg, #ad6eca, #3b91d8);
             mask-image: linear-gradient(#ffffff 0 0),linear-gradient(#ffffff 0 0);
+            background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
         }
 
         div.task-application {
@@ -125,7 +125,7 @@ div#windows11-taskbar {
                     margin-top: 3px;
                     transition: 0.1s;
                     border-radius: 3px;
-                    background: linear-gradient(120deg, #ad6eca, #3b91d8);
+                    background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
                 }
 
                 i,svg,img {
@@ -159,6 +159,7 @@ div#windows11-taskbar {
                 svg {
                     width: 100%;
                     height: 100%;
+                    fill: var(--dominColor);
                 }
             }
 
@@ -173,7 +174,7 @@ div#windows11-taskbar {
             }
 
             input.task-search-content::placeholder {
-                color: #ad6eca;
+                color: var(--dominColor);
             }
         }
     }

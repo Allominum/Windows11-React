@@ -11,6 +11,18 @@ div.wallpaper-list {
     }
 }
 
+div.color-box {
+  width: 98%;
+  height: auto;
+  display: flex;
+  align-items: center;
+}
+
+div.color-box div.color-space {
+  display: flex;
+  align-items: center;
+}
+
 .toolbar-wrapper {
     position: fixed;
     bottom: 32px;
