@@ -112,6 +112,7 @@ const DeskTop = ({ config }) => {
             setTimeout(() => setRefresh(false),200);
         }
     }
+    const onRightMenuBlur = () => setRightMenu(false);
 
     const isDeveloper = () => {
         messageApi.open({
@@ -137,7 +138,7 @@ const DeskTop = ({ config }) => {
             <div id="windows11-desktop" onContextMenu={(event) => RightClick(event)} >
                 {contextHolder}
                 <span className="desktop-select"></span>
-                <OnMouseRightClick opacity={ rightMenu ? 1 : 0 } isDeveloper={isDeveloper} openSettingWindow={openSettingWindow} openDesktopRefresh={openDesktopRefresh} />
+                <OnMouseRightClick opacity={ rightMenu ? 1 : 0 } isDeveloper={isDeveloper} openSettingWindow={openSettingWindow} openDesktopRefresh={openDesktopRefresh} onRightMenuBlur={onRightMenuBlur} />
                 <div className="desktop-apps">
 
                     {!refresh && application.map(item => (

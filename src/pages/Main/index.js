@@ -9,6 +9,7 @@ import Cookies from 'js-cookie'
 import LoginLayout from "../Login"
 import Hooks from "./scripts/hooks"
 import userInfo from "./scripts/users"
+import version from "./scripts/version"
 import DeskTop from "./modules/desktop"
 import Datebox from "./modules/datebox"
 import Taskbar from "./modules/taskbarx"
@@ -18,7 +19,6 @@ import PanelBox from './modules/switchox'
 import ChildBox from "./modules/aboubox"
 import ScreenBox from "./modules/screbox"
 import { useState, useEffect } from "react"
-import version from "./scripts/version"
 import CreateWindow from "./modules/WindowAPI"
 import { SmileOutlined } from '@ant-design/icons'
 import { notification, Modal, Button } from "antd"
@@ -36,6 +36,7 @@ const MainLayout = () => {
 
     const dispatch = useDispatch();
     const cookieValue = Cookies.get('version');
+    
     const hookReducer = useSelector( state => state.hookReducer );
     const mainReducer = useSelector( state => state.mainReducer );
     const windReducer = useSelector( state => state.windReducer );

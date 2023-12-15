@@ -12,22 +12,22 @@ const colorStore = createSlice({
     reducers: {
         setDominColor(state,action) {
             state.dominColor = action.payload;
-            document.getElementById("frameelement-main").style.setProperty(`--dominColor`, action.payload);
+            document.body.style.setProperty(`--dominColor`, action.payload);
         },
 
         setSeconColor(state,action) {
             state.seconColor = action.payload;
-            document.getElementById("frameelement-main").style.setProperty(`--seconColor`, action.payload);
+            document.body.style.setProperty(`--seconColor`, action.payload);
         },
 
         resetDominColor(state) {
             state.dominColor = "#ad6eca";
-            document.getElementById("frameelement-main").style.setProperty(`--dominColor`, "#ad6eca");
+            document.body.style.setProperty(`--dominColor`, "#ad6eca");
         },
 
         resetSeconColor(state) {
             state.seconColor = "#3b91d8";
-            document.getElementById("frameelement-main").style.setProperty(`--seconColor`, "#3b91d8");
+            document.body.style.setProperty(`--seconColor`, "#3b91d8");
         }
     }
 });

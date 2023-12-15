@@ -3,7 +3,6 @@ import mainReducer from "./modules/mainStore"
 import windReducer from "./modules/windStore"
 import hookReducer from "./modules/hookStore"
 import sadeReducer from "./modules/sadeStore"
-import timeReducer from "./modules/timeStore"
 import colorReducer from "./modules/colorStore"
 import loginReducer from "./modules/loginStore"
 
@@ -15,7 +14,6 @@ const WinStore = configureStore({
         windReducer: windReducer,
         hookReducer: hookReducer,
         sadeReducer: sadeReducer,
-        timeReducer: timeReducer,
         colorReducer: colorReducer,
         loginReducer: loginReducer,
     }
