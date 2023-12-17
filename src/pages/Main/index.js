@@ -127,46 +127,48 @@ const MainLayout = () => {
         setMinMaxStatus(false);
     }
 
+    const openApplication = (info) => {
+        setTimeout(() => dispatch(setOpacityStatus(1)),50);
+        dispatch(setScaleStatus(true));
+        setWindowStatus(!windowStatus);
+    }
+
     const onApplicationClick = (info) => {
         initApplication();
         if (!windowStatus) {
             if (info.maxDefault && info.ish5) {
                 setWindowInfo({...windowInfo,ish5: false});
                 dispatch(setMaxStatus(true));
-                setTimeout(() => dispatch(setOpacityStatus(1)),50);
-                dispatch(setScaleStatus(true));
-                setWindowStatus(!windowStatus);
+                openApplication();
                 dispatch(setScaleStatus(!windReducer.windowScale));
                 setTimeout(() => dispatch(setScaleStatus(false)),10);
                 setTimeout(() => setWindowInfo(info),500);
             } else {
                 dispatch(setMaxStatus(info.maxDefault));
-                setTimeout(() => dispatch(setOpacityStatus(1)),50);
-                dispatch(setScaleStatus(true));
-                setWindowStatus(!windowStatus);
+                openApplication();
                 setTimeout(() => dispatch(setScaleStatus(false)),10);
                 setWindowInfo(info);
             }
         } else {
-            onApplicationClose();
-            setTimeout(() => {
-                if (info.maxDefault && info.ish5) {
-                    setWindowInfo({...windowInfo,ish5: false});
-                    dispatch(setMaxStatus(true));
-                    setTimeout(() => dispatch(setOpacityStatus(1)),50);
-                    dispatch(setScaleStatus(true));
-                    setWindowStatus(true);
-                    setTimeout(() => dispatch(setScaleStatus(false)),10);
-                    setTimeout(() => setWindowInfo(info),500);
-                } else {
-                    dispatch(setMaxStatus(info.maxDefault));
-                    setTimeout(() => dispatch(setOpacityStatus(1)),50);
-                    dispatch(setScaleStatus(true));
-                    setWindowStatus(true);
-                    setTimeout(() => dispatch(setScaleStatus(false)),10);
-                    setWindowInfo(info);
-                }
-            },500);
+            if (!windReducer.minMode) {
+                onApplicationClose();
+                setTimeout(() => {
+                    if (info.maxDefault && info.ish5) {
+                        setWindowInfo({...windowInfo,ish5: false});
+                        dispatch(setMaxStatus(true));
+                        openApplication();
+                        setTimeout(() => dispatch(setScaleStatus(false)),10);
+                        setTimeout(() => setWindowInfo(info),500);
+                    } else {
+                        dispatch(setMaxStatus(info.maxDefault));
+                        openApplication();
+                        setTimeout(() => dispatch(setScaleStatus(false)),10);
+                        setWindowInfo(info);
+                    }
+                },500);
+            } else {
+                onWindowHeadMoudle("min");
+            }
         }
     }
 
