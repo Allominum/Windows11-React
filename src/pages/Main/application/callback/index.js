@@ -4,7 +4,6 @@ import { useState } from "react"
 import callbackIcon from "../../../../image/icon/feedback.png"
 
 const CallBackLayout = () => {
-
     const [screen, setScreen] = useState(true);
     setTimeout(() => setScreen(false),800);
 
