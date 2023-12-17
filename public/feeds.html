@@ -12,21 +12,16 @@
     <meta name="keywords" content="一个基于React框架和AntDesign组件库开发的前端高仿Windows项目,使用 HTML、CSS 和 JavaScript 模拟 Windows 11 操作系统的界面与交互。">
     <meta name="description" content="一个基于React框架和AntDesign组件库开发的前端高仿Windows项目,使用 HTML、CSS 和 JavaScript 模拟 Windows 11 操作系统的界面与交互。">
   </head>
-  <body id="body" class="body" style="--dominColor: #ad6eca; --seconColor: #3b91d8;">
+  <body id="body" class="body" oncontextmenu="(event) => event.preventDefault()">
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <header id="header" class="header">
         <img class="jpeg" draggable="false" src="./assets/feeds/header.jpg"/>
         <span class="title">我们需要您的宝贵意见</span>
     </header>
-    
     <div id="feedback"></div>
     <script src="https://cdn.staticfile.org/twikoo/1.6.27/twikoo.all.min.js"></script>
-    <script>
-        twikoo.init({
-            lang: 'zh-CN',
-            el: '#feedback',
-            envId: 'https://twikoo.yunair.cn/'
-        });
+    <script type="text/JavaScript">
+        twikoo.init({ lang: 'zh-CN', el: '#feedback', envId: 'https://twikoo.yunair.cn/' });
     </script>
   </body>
 </html>
