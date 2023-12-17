@@ -1,0 +1,1 @@
+div#window-layout-callback-screen{display:flex;align-items:center;justify-content:center}div#window-layout-callback-screen{z-index:2;width:100%;transition:.5s;position:absolute;height:calc(100% - 55px);background-color:var(--currentColor)}div#window-layout-callback-screen img.application-icon{width:100px;height:100px;border-radius:5px}

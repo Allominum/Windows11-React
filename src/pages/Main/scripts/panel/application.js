@@ -9,11 +9,13 @@ import deskappIcon7 from "../../../../image/application/vue-color-avatar.png"
 import deskappIcon8 from "../../../../image/application/saolei.png"
 import deskappIcon9 from "../../../../image/icon/paint.png"
 import deskappIcon10 from "../../../../image/icon/home.png"
+import deskappIcon11 from "../../../../image/icon/feedback.png"
 
 import Windows11Layout from "../../application/windows11"
 import SettingWindowLayout from "../../application/settings"
 import NotepadWindowLayout from "../../application/notepad"
 import ContentWindowLayout from "../../application/content"
+import CallBackWindowLayout from "../../application/callback"
 import DrawDesignWindowLayout from "../../application/drawtool"
 import TaskMannerWindowLayout from "../../application/taskmaner"
 
@@ -26,7 +28,8 @@ const PanelApplication = [
     { id: 6, name: "ChatGPT", alt: "ChatGPT", icon: deskappIcon6, width: "1080px", height: "620px", maxDefault: true, ish5: true, h5url: "https://itab.juxw.com/",template: <ContentWindowLayout name={"ChatGPT"} icon={deskappIcon6} /> },
     { id: 7, name: "Color Avatar", alt: "Color Avatar", icon: deskappIcon7, width: "1080px", height: "620px", maxDefault: false, ish5: true, h5url: "https://widget.codelife.cc/colorAvatar/",template: <ContentWindowLayout name={"Color Avatar"} icon={deskappIcon7} /> },
     { id: 8, name: "扫雷游戏", alt: "扫雷游戏", icon: deskappIcon8, width: "1080px", height: "620px", maxDefault: false, ish5: true, h5url: "https://player.zone.msn.com/?hostingEnvironment=edgeCasualGamesHub&gamepath=msminesweeper",template: <ContentWindowLayout name={"扫雷游戏"} icon={deskappIcon8} /> },
-    { id: 9, name: "画图工具", alt: "画图工具", icon: deskappIcon9, width: "1080px", height: "620px", maxDefault: true, ish5: false, h5url: "https://js.design/community",template: <DrawDesignWindowLayout name={"画图工具"} icon={deskappIcon9} /> },
+    { id: 9, name: "画图工具", alt: "画图工具", icon: deskappIcon9, width: "1080px", height: "620px", maxDefault: true, ish5: false, h5url: "https://ys.mihoyo.com/",template: <DrawDesignWindowLayout name={"画图工具"} icon={deskappIcon9} /> },
+    { id: 10, name: "反馈社区", alt: "反馈社区", icon: deskappIcon11, width: "1080px", height: "620px", maxDefault: false, ish5: true, h5url: "https://win.react.yunair.cn/feeds.html",template: <CallBackWindowLayout name={"反馈社区"} icon={deskappIcon9} /> },
     { id: 100, name: "关于系统", alt: "关于系统", icon: deskappIcon10, width: "900px", height: "550px", maxDefault: false, ish5: false, h5url: "https://ys.mihoyo.com/", template: <Windows11Layout name={"关于系统"} icon={deskappIcon10} /> },
 ]
 
