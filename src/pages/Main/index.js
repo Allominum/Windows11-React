@@ -130,7 +130,26 @@ const MainLayout = () => {
     const openApplication = (info) => {
         setTimeout(() => dispatch(setOpacityStatus(1)),50);
         dispatch(setScaleStatus(true));
-        setWindowStatus(!windowStatus);
+        setWindowStatus(true);
+    }
+
+    const toggleApplication = (info) => {
+        onApplicationClose();
+        setTimeout(() => {
+            if (info.maxDefault && info.ish5) {
+                setWindowInfo({...windowInfo,ish5: false});
+                dispatch(setMaxStatus(true));
+                openApplication();
+                dispatch(setScaleStatus(!windReducer.windowScale));
+                setTimeout(() => dispatch(setScaleStatus(false)),10);
+                setTimeout(() => setWindowInfo(info),500);
+            } else {
+                dispatch(setMaxStatus(info.maxDefault));
+                openApplication();
+                setTimeout(() => dispatch(setScaleStatus(false)),10);
+                setWindowInfo(info);
+            }
+        },500);
     }
 
     const onApplicationClick = (info) => {
@@ -151,23 +170,13 @@ const MainLayout = () => {
             }
         } else {
             if (!windReducer.minMode) {
-                onApplicationClose();
-                setTimeout(() => {
-                    if (info.maxDefault && info.ish5) {
-                        setWindowInfo({...windowInfo,ish5: false});
-                        dispatch(setMaxStatus(true));
-                        openApplication();
-                        setTimeout(() => dispatch(setScaleStatus(false)),10);
-                        setTimeout(() => setWindowInfo(info),500);
-                    } else {
-                        dispatch(setMaxStatus(info.maxDefault));
-                        openApplication();
-                        setTimeout(() => dispatch(setScaleStatus(false)),10);
-                        setWindowInfo(info);
-                    }
-                },500);
+                toggleApplication(info);
             } else {
-                onWindowHeadMoudle("min");
+                if (info.id === windowInfo.id) {
+                    onWindowHeadMoudle("min");
+                } else {
+                    toggleApplication(info);
+                }
             }
         }
     }
