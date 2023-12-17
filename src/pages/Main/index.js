@@ -122,12 +122,18 @@ const MainLayout = () => {
         });
     }
 
+    const initApplication = (info) => {
+        setMinH5Status(false);
+        setMinMaxStatus(false);
+    }
+
     const onApplicationClick = (info) => {
+        initApplication();
         if (!windowStatus) {
             if (info.maxDefault && info.ish5) {
                 setWindowInfo({...windowInfo,ish5: false});
                 dispatch(setMaxStatus(true));
-                setTimeout(() => dispatch(setOpacityStatus(1)),100);
+                setTimeout(() => dispatch(setOpacityStatus(1)),50);
                 dispatch(setScaleStatus(true));
                 setWindowStatus(!windowStatus);
                 dispatch(setScaleStatus(!windReducer.windowScale));
@@ -135,7 +141,7 @@ const MainLayout = () => {
                 setTimeout(() => setWindowInfo(info),500);
             } else {
                 dispatch(setMaxStatus(info.maxDefault));
-                setTimeout(() => dispatch(setOpacityStatus(1)),100);
+                setTimeout(() => dispatch(setOpacityStatus(1)),50);
                 dispatch(setScaleStatus(true));
                 setWindowStatus(!windowStatus);
                 setTimeout(() => dispatch(setScaleStatus(false)),10);
@@ -147,14 +153,14 @@ const MainLayout = () => {
                 if (info.maxDefault && info.ish5) {
                     setWindowInfo({...windowInfo,ish5: false});
                     dispatch(setMaxStatus(true));
-                    setTimeout(() => dispatch(setOpacityStatus(1)),100);
+                    setTimeout(() => dispatch(setOpacityStatus(1)),50);
                     dispatch(setScaleStatus(true));
                     setWindowStatus(true);
                     setTimeout(() => dispatch(setScaleStatus(false)),10);
                     setTimeout(() => setWindowInfo(info),500);
                 } else {
                     dispatch(setMaxStatus(info.maxDefault));
-                    setTimeout(() => dispatch(setOpacityStatus(1)),100);
+                    setTimeout(() => dispatch(setOpacityStatus(1)),50);
                     dispatch(setScaleStatus(true));
                     setWindowStatus(true);
                     setTimeout(() => dispatch(setScaleStatus(false)),10);
@@ -169,6 +175,7 @@ const MainLayout = () => {
             if (windowInfo.ish5) {
                 setWindowInfo({...windowInfo,ish5: false});
             }
+            initApplication();
             setTimeout(() => {
                 dispatch(setScaleStatus(true));
                 dispatch(setOpacityStatus(0));
