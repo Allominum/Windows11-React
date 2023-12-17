@@ -42,6 +42,7 @@ header#header {
     position: relative;
     text-align: center;
     align-items: center;
+    overflow-y: scroll;
     border: 3px solid #ffffff;
 }
 
@@ -127,6 +128,19 @@ div#twikoo {
 
         div.tk-content {
             color: #ffffff;
+        }
+
+        a.tk-admin-close {
+            position: absolute;
+        }
+    }
+
+    div.tk-login {
+        width: 90%;
+        margin: 0 auto;
+
+        div.tk-login-title {
+            margin-top: 20px;
         }
     }
 }
