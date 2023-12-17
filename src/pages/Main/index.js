@@ -42,6 +42,8 @@ const MainLayout = () => {
     const windReducer = useSelector( state => state.windReducer );
 
     const [windowInfo, setWindowInfo] = useState(null);
+    const [minH5Status, setMinH5Status] = useState(false);
+    const [minMaxStatus, setMinMaxStatus] = useState(false);
     const [screenStatus, setScreenStatus] = useState(false);
     const [windowStatus, setWindowStatus] = useState(false);
 
@@ -201,20 +203,28 @@ const MainLayout = () => {
         if (mode === "min") {
             if (!windReducer.minMode) {
                 if (windowInfo.ish5) {
+                    setMinH5Status(true);
                     setWindowInfo({...windowInfo,ish5: false});
                 }
-                setTimeout(() => {
-                    dispatch(setOpacityStatus(0));
-                    dispatch(setScaleStatus(true));
-                },100);
-                setTimeout(() => dispatch(setMinStatus(!windReducer.minMode)),500);
+                dispatch(setOpacityStatus(0));
+                dispatch(setScaleStatus(true));
+                if (windReducer.maxMode) {
+                    setMinMaxStatus(true);
+                    dispatch(setMaxStatus(false));
+                }
+                setTimeout(() => dispatch(setMinStatus(!windReducer.minMode)),750);
             } else {
                 dispatch(setMinStatus(!windReducer.minMode));
                 setTimeout(() => {
                     dispatch(setOpacityStatus(1));
                     dispatch(setScaleStatus(false));
                 },100);
-                if (windowInfo.ish5) {
+                if (minMaxStatus) {
+                    setMinMaxStatus(false);
+                    dispatch(setMaxStatus(true));
+                }
+                if (minH5Status) {
+                    setMinH5Status(false);
                     setTimeout(() => setWindowInfo({...windowInfo,ish5: true}),500)
                 }
             }
