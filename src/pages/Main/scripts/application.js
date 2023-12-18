@@ -1,7 +1,7 @@
 
 import deskappIcon1 from "../../../image/icon/windows/thispc-sm.png"
 import deskappIcon2 from "../../../image/icon/windows/folder-sm.png"
-import deskappIcon3 from "../../../image/icon/windows/bin.png"
+import deskappIcon3 from "../../../image/icon/windows/bin-em.png"
 import deskappIcon4 from "../../../image/icon/windows/170.png"
 import deskappIcon5 from "../../../image/icon/code.png"
 import deskappIcon6 from "../../../image/icon/store.png"

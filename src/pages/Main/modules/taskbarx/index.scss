@@ -19,12 +19,12 @@ div#windows11-taskbar {
         height: 2.5rem;
         transition: 0.5s;
         margin: auto 0.1875rem;
-        border-radius: 0.3125rem;
+        border-radius: 0.25rem;
 
         i {
             width: 100%;
             height: 100%;
-            border-radius: 0.3125rem;
+            border-radius: 0.25rem;
             transition: 0.4s ease-in-out;
             background-color: rgba(254,254,254,0);
         }
@@ -72,7 +72,7 @@ div#windows11-taskbar {
             width: 11.5625rem;
             height: 1.8750rem;
             padding-left: 0.625rem;
-            border-radius: 0.3125rem;
+            border-radius: 0.25rem;
         }
 
         div.task-search {
@@ -85,7 +85,7 @@ div#windows11-taskbar {
             content: "";
             padding: 2px;
             position: absolute;
-            border-radius: 0.3125rem;
+            border-radius: 0.25rem;
             -webkit-mask-composite: xor;
                     mask-composite: exclude;
             mask-clip: content-box,border-box;
@@ -124,7 +124,7 @@ div#windows11-taskbar {
                     height: 4px;
                     margin-top: 3px;
                     transition: 0.1s;
-                    border-radius: 3px;
+                    border-radius: 0.25rem;
                     background: linear-gradient(120deg, var(--dominColor), var(--seconColor));
                 }
 
@@ -146,7 +146,7 @@ div#windows11-taskbar {
 
                 // 因为图标过大，进行缩小处理
                 img#task-100 {
-                    transform: scale(0.80);
+                    transform: scale(0.85);
                 }
             }
         }
@@ -216,13 +216,13 @@ div#windows11-taskbar {
 
         div.task-right-apps.taskapps-dates {
             right: 0.9375rem;
-            border-radius: 5px;
+            border-radius: 0.25rem;
         }
 
         div.task-right-apps.taskapps-more {
             width: 24px;
             display: flex;
-            border-radius: 5px;
+            border-radius: 0.25rem;
 
             svg {
                 width: 60%;
@@ -233,7 +233,7 @@ div#windows11-taskbar {
 
         div.task-right-apps.taskapps-status {
             display: flex;
-            border-radius: 5px;
+            border-radius: 0.25rem;
             justify-content: space-between;
 
             div.status-item {

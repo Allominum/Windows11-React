@@ -122,17 +122,32 @@ const MainLayout = () => {
         });
     }
 
+    /**
+     * @param { * } info
+     * @name initApplication
+     * @description 初始Application窗口 
+     */
     const initApplication = (info) => {
         setMinH5Status(false);
         setMinMaxStatus(false);
     }
 
+    /**
+     * @param { * } info
+     * @name openApplication
+     * @description 打开Application窗口 
+     */
     const openApplication = (info) => {
         setTimeout(() => dispatch(setOpacityStatus(1)),50);
         dispatch(setScaleStatus(true));
         setWindowStatus(true);
     }
 
+    /**
+     * @param { * } info
+     * @name toggleApplication
+     * @description 切换Application窗口 
+     */
     const toggleApplication = (info) => {
         onApplicationClose();
         setTimeout(() => {
@@ -152,6 +167,35 @@ const MainLayout = () => {
         },500);
     }
 
+    /**
+     * @param { * } info
+     * @name onApplicationClose
+     * @description 关闭Application窗口 
+     */
+    const onApplicationClose = (task) => {
+        if (windowStatus) {
+            if (windowInfo.ish5) {
+                setWindowInfo({...windowInfo,ish5: false});
+            }
+            initApplication();
+            setTimeout(() => {
+                dispatch(setScaleStatus(true));
+                dispatch(setOpacityStatus(0));
+                setTimeout(() => {
+                    dispatch(setMinStatus(false));
+                    dispatch(setMaxStatus(false));
+                    setWindowInfo(null);
+                    setWindowStatus(!windowStatus);
+                },200);
+            },50);
+        }
+    }
+
+    /**
+     * @param { * } info
+     * @name onApplicationClick
+     * @description ApplicationAPI 
+     */
     const onApplicationClick = (info) => {
         initApplication();
         if (!windowStatus) {
@@ -178,25 +222,6 @@ const MainLayout = () => {
                     toggleApplication(info);
                 }
             }
-        }
-    }
-
-    const onApplicationClose = (task) => {
-        if (windowStatus) {
-            if (windowInfo.ish5) {
-                setWindowInfo({...windowInfo,ish5: false});
-            }
-            initApplication();
-            setTimeout(() => {
-                dispatch(setScaleStatus(true));
-                dispatch(setOpacityStatus(0));
-                setTimeout(() => {
-                    dispatch(setMinStatus(false));
-                    dispatch(setMaxStatus(false));
-                    setWindowInfo(null);
-                    setWindowStatus(!windowStatus);
-                },300);
-            },100);
         }
     }
 
@@ -230,7 +255,7 @@ const MainLayout = () => {
                     setMinMaxStatus(true);
                     dispatch(setMaxStatus(false));
                 }
-                setTimeout(() => dispatch(setMinStatus(!windReducer.minMode)),750);
+                setTimeout(() => dispatch(setMinStatus(!windReducer.minMode)),500);
             } else {
                 dispatch(setMinStatus(!windReducer.minMode));
                 setTimeout(() => {
