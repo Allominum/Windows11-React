@@ -54,8 +54,8 @@ const Taskbar = ({ config, onWindowHeadMoudle, id, name, icon }) => {
 
                     <div className="task-application">
                         {config.active && 
-                            <div id={taskApps} className="application">
-                                <img id={`task-${id}`} className="application-icon" src={icon} alt={name} onClick={() => onWindowHeadMoudle("min")} />
+                            <div id={taskApps} className="application" onClick={() => onWindowHeadMoudle("min")}>
+                                <img id={`task-${id}`} className="application-icon" src={icon} alt={name} />
                                 <div className="application-progress" style={{ width: config.minMode ? "40%" : "75%" }} ></div>
                             </div>
                         }

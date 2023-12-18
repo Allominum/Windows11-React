@@ -141,6 +141,7 @@ const MainLayout = () => {
         setTimeout(() => dispatch(setOpacityStatus(1)),50);
         dispatch(setScaleStatus(true));
         setWindowStatus(true);
+        setTimeout(() => dispatch(windowsHook("allhook")),500);
     }
 
     /**

@@ -15,6 +15,13 @@ const hookStore = createSlice({
     reducers: {
         windowsHook(state,action) {
             switch(action.payload) {
+                case "allhook":
+                    state.datebox = false;
+                    state.sidebox = false;
+                    state.panelbox = false;
+                    state.childbox = false;
+                    state.winpanel = false;
+                    break;
                 case "sidebox":
                     state.datebox = false;
                     state.panelbox = false;
