@@ -52,7 +52,7 @@ const MainLayout = () => {
     
     const openNotification = (placement,title,content) => {
         api.info({
-            duration: 2,
+            duration: 3,
             message: title,
             closeIcon: false,
             description: content,
@@ -130,6 +130,7 @@ const MainLayout = () => {
     const initApplication = (info) => {
         setMinH5Status(false);
         setMinMaxStatus(false);
+        dispatch(windowsHook("allhook"));
     }
 
     /**
@@ -141,7 +142,6 @@ const MainLayout = () => {
         setTimeout(() => dispatch(setOpacityStatus(1)),50);
         dispatch(setScaleStatus(true));
         setWindowStatus(true);
-        setTimeout(() => dispatch(windowsHook("allhook")),500);
     }
 
     /**
