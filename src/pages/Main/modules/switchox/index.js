@@ -24,6 +24,8 @@ const PanelBox = ({ config }) => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
         Cookies.get('batterytheme') === 'true' && switchOnClick("switch-4");
         // eslint-disable-next-line react-hooks/exhaustive-deps
+        (Cookies.get('darktheme') === 'true' && Cookies.get('batterytheme') === 'true') && switchOnClick("switch-6");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[dispatch]);
 
     const rangeOnChange = (task) => {

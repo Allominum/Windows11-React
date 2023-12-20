@@ -199,7 +199,7 @@ const MainLayout = () => {
             if (!windReducer.minMode) {
                 toggleApplication(info);
             } else {
-                (info.id === windowInfo.id) ? onWindowHeadMoudle("min") : toggleApplication(info);
+                info.id === windowInfo.id ? onWindowHeadMoudle("min") : toggleApplication(info);
             }
         }
     }
