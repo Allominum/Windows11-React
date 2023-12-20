@@ -12,8 +12,8 @@ const colorStore = createSlice({
     name: "colorStore",
     
     initialState: {
-        dominColor: "#ad6eca",
-        seconColor: "#3b91d8",
+        dominColor: (dominColorValue === undefined) ? "#ad6eca" : dominColorValue,
+        seconColor: (seconColorValue === undefined) ? "#3b91d8" : seconColorValue,
     },
 
     reducers: {
