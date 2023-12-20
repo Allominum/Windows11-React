@@ -73,7 +73,10 @@ const MainLayout = () => {
     }
 
     useEffect(() => {
-        dispatch(setDarkThemeStatus(false));
+        const darkCookie = Cookies.get('darktheme');
+        const wallCookie = Cookies.get('wallpaper');
+        darkCookie === 'true' ? dispatch(setDarkThemeStatus(true)) : dispatch(setDarkThemeStatus(false));
+        wallCookie !== undefined && document.getElementById("root").style.setProperty(`--background`, `url(${wallCookie})`);
     },[dispatch]);
 
     const taskBarDom = (task) => {
@@ -102,19 +105,6 @@ const MainLayout = () => {
             },3000);
         }
     };
-
-    const autoStartWindow = () => {
-        onApplicationClick({
-            id: 100,
-            ish5: false,
-            width: "900px",
-            height: "550px",
-            maxDefault: false,
-            icon: deskappIcon10,
-            name: "关于Windows11",
-            template: <Windows11Layout/>,
-        });
-    }
 
     /**
      * @param { * } info
@@ -264,7 +254,8 @@ const MainLayout = () => {
             <audio src={StartUpMusic} id="startup-music"/>
         )
     }
-    const StartScreen = () => console.log("%cWindows11 Ready! Power By Hua", "color: lightblue; font-size: x-large");    ;
+    const StartScreen = () => console.log("%cWindows11 Ready! Power By Hua", "color: lightblue; font-size: x-large");
+    const autoStartWindow = () => onApplicationClick({ id: 100, ish5: false, width: "900px", height: "550px", maxDefault: false, icon: deskappIcon10, name: "关于Windows11", template: <Windows11Layout/> });
 
     const StartAlertModel = ({ opend }) => {
         return (

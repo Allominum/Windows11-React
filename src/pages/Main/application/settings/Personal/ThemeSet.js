@@ -1,6 +1,7 @@
 
 import "./ThemeSet.css"
 
+import Cookies from 'js-cookie'
 import { useEffect, useState } from "react"
 import wallpaper from "../../../scripts/wallpaper"
 import { useSelector, useDispatch } from "react-redux"
@@ -156,6 +157,7 @@ const ThemeSetting = ({ id }) => {
                                             style: {zIndex: 9999},
                                             content: "切换壁纸成功！",
                                         });
+                                        Cookies.set('wallpaper',item.path);
                                         document.getElementById("root").style.setProperty(`--background`, `url(${item.path})`);
                                     }}>
                                     </AppstoreOutlined>

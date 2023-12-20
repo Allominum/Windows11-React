@@ -1,12 +1,15 @@
 
 import "./index.css"
-import { useId, useRef, useState } from "react"
+import Cookies from 'js-cookie'
+import { useDispatch } from "react-redux"
+import { useEffect, useId, useRef, useState } from "react"
 
 const PanelBox = ({ config }) => {
 
     const inputBright = useId();
     const inputAudios = useId();
     const switchValue = useId();
+    const dispatch = useDispatch();
     const brightValue = useRef(null);
     const audiosValue = useRef(null);
 
@@ -14,6 +17,14 @@ const PanelBox = ({ config }) => {
     const [bright, setBright] = useState(100);
     // eslint-disable-next-line no-unused-vars
     const [audios, setAudios] = useState(100);
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        Cookies.get('darktheme') === 'true' && switchOnClick("switch-5");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        Cookies.get('batterytheme') === 'true' && switchOnClick("switch-4");
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    },[dispatch]);
 
     const rangeOnChange = (task) => {
         switch (task) {
@@ -53,7 +64,6 @@ const PanelBox = ({ config }) => {
                 } else {
                     setSwitches({ ...switches, switch3: true, switch1: false });
                 }
-                
                 break;
             case "switch-4":
                 config.onSwitch("batteryTheme", !switches["switch4"]);

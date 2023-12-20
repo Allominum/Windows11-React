@@ -1,6 +1,7 @@
 
-import ThemeTool from "../../pages/Main/themes"
+import Cookies from 'js-cookie'
 import { createSlice } from '@reduxjs/toolkit'
+import ThemeTool from "../../pages/Main/themes"
 import darkBackground from "../../image/wallpaper/dark/img0.jpg"
 import lighBackground from "../../image/wallpaper/default/img1.jpg"
 const darkTheme = ThemeTool.darkTheme,lightTheme = ThemeTool.lightTheme;
@@ -45,11 +46,13 @@ const mainStore = createSlice({
 
         setDarkThemeStatus(state,action) {
             if (action.payload) {
+                Cookies.set('darktheme',true);
                 for(let i in darkTheme) {
                     document.getElementById("frameelement-main").style.setProperty(`--${darkTheme[i].name}`, darkTheme[i].color);
                 }
                 document.getElementById("root").style.setProperty(`--background`, `url(${darkBackground})`);
             } else {
+                Cookies.set('darktheme',false);
                 for(let i in lightTheme) {
                     document.getElementById("frameelement-main").style.setProperty(`--${lightTheme[i].name}`, lightTheme[i].color);
                 }
@@ -60,6 +63,7 @@ const mainStore = createSlice({
 
         setBatteryThemeStatus(state,action) {
             state.batteryThemeStatus = action.payload;
+            Cookies.set('batterytheme',action.payload);
         }
     }
 });

@@ -1,5 +1,6 @@
 
 import "./index.css"
+import Cookies from 'js-cookie'
 import { useState } from "react"
 import wallpaper from "../wallpaper"
 import { Divider, message } from 'antd'
@@ -12,6 +13,7 @@ const OnMouseRightClick = ({ opacity, openSettingWindow, openDesktopRefresh, isD
         if (!status) {
             setStatus(true);
             let wallIndex = Math.floor(Math.random() * (Math.floor(11) - Math.ceil(0) + 1)) + 0;
+            Cookies.set('wallpaper',wallpaper[wallIndex].path);
             document.getElementById("root").style.setProperty(`--background`, `url(${wallpaper[wallIndex].path})`);
             messageApi.open({
                 type: "success",
