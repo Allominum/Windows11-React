@@ -41,7 +41,7 @@ const MainLayout = () => {
     const [minMaxStatus, setMinMaxStatus] = useState(false);
     const [screenStatus, setScreenStatus] = useState(false);
     const [windowStatus, setWindowStatus] = useState(false);
-
+    
     const hookReducer = useSelector( state => state.hookReducer );
     const mainReducer = useSelector( state => state.mainReducer );
     const windReducer = useSelector( state => state.windReducer );
