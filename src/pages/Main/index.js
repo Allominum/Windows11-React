@@ -36,17 +36,15 @@ const MainLayout = () => {
 
     const dispatch = useDispatch();
     const cookieValue = Cookies.get('version');
-    
-    const hookReducer = useSelector( state => state.hookReducer );
-    const mainReducer = useSelector( state => state.mainReducer );
-    const windReducer = useSelector( state => state.windReducer );
-
     const [windowInfo, setWindowInfo] = useState(null);
     const [minH5Status, setMinH5Status] = useState(false);
     const [minMaxStatus, setMinMaxStatus] = useState(false);
     const [screenStatus, setScreenStatus] = useState(false);
     const [windowStatus, setWindowStatus] = useState(false);
 
+    const hookReducer = useSelector( state => state.hookReducer );
+    const mainReducer = useSelector( state => state.mainReducer );
+    const windReducer = useSelector( state => state.windReducer );
     const darkThemeChange = (status) => dispatch(setDarkThemeStatus(status));
     const [api, contextHolder] = notification.useNotification({ stack: true,bottom: "10%"});
     
@@ -79,11 +77,7 @@ const MainLayout = () => {
     },[dispatch]);
 
     const taskBarDom = (task) => {
-        if (windowStatus) {
-            document.getElementById("windows11-" + task).style.zIndex = 4;
-        } else {
-            document.getElementById("windows11-" + task).style.zIndex = 2;
-        }
+        windowStatus ? (document.getElementById("windows11-" + task).style.zIndex = 4) : (document.getElementById("windows11-" + task).style.zIndex = 2);
         dispatch(windowsHook(task));
     };
 
@@ -175,9 +169,7 @@ const MainLayout = () => {
      */
     const onApplicationClose = (task) => {
         if (windowStatus) {
-            if (windowInfo.ish5) {
-                setWindowInfo({...windowInfo,ish5: false});
-            }
+            windowInfo.ish5 && setWindowInfo({...windowInfo,ish5: false});
             initApplication();
             setTimeout(() => {
                 dispatch(setScaleStatus(true));
@@ -217,11 +209,7 @@ const MainLayout = () => {
             if (!windReducer.minMode) {
                 toggleApplication(info);
             } else {
-                if (info.id === windowInfo.id) {
-                    onWindowHeadMoudle("min");
-                } else {
-                    toggleApplication(info);
-                }
+                (info.id === windowInfo.id) ? onWindowHeadMoudle("min") : toggleApplication(info);
             }
         }
     }
@@ -237,25 +225,19 @@ const MainLayout = () => {
             if (windowInfo.ish5) {
                 setWindowInfo({...windowInfo,ish5: false});
                 dispatch(setMaxStatus(!windReducer.maxMode));
-                setTimeout(() => {
-                    setWindowInfo({...windowInfo,ish5: true});
-                },500);
+                setTimeout(() => setWindowInfo({...windowInfo,ish5: true}),500);
             } else {
                 dispatch(setMaxStatus(!windReducer.maxMode));
             }
         } else 
         if (mode === "min") {
             if (!windReducer.minMode) {
-                if (windowInfo.ish5) {
-                    setMinH5Status(true);
-                    setWindowInfo({...windowInfo,ish5: false});
-                }
+                windowInfo.ish5 && setMinH5Status(true);
+                windowInfo.ish5 && setWindowInfo({...windowInfo,ish5: false});
                 dispatch(setOpacityStatus(0));
                 dispatch(setScaleStatus(true));
-                if (windReducer.maxMode) {
-                    setMinMaxStatus(true);
-                    dispatch(setMaxStatus(false));
-                }
+                windReducer.maxMode && setMinMaxStatus(true);
+                windReducer.maxMode && dispatch(setMaxStatus(false));
                 setTimeout(() => dispatch(setMinStatus(!windReducer.minMode)),500);
             } else {
                 dispatch(setMinStatus(!windReducer.minMode));
@@ -263,14 +245,10 @@ const MainLayout = () => {
                     dispatch(setOpacityStatus(1));
                     dispatch(setScaleStatus(false));
                 },100);
-                if (minMaxStatus) {
-                    setMinMaxStatus(false);
-                    dispatch(setMaxStatus(true));
-                }
-                if (minH5Status) {
-                    setMinH5Status(false);
-                    setTimeout(() => setWindowInfo({...windowInfo,ish5: true}),500)
-                }
+                minH5Status && setMinH5Status(false);
+                minMaxStatus && setMinMaxStatus(false);
+                minMaxStatus && dispatch(setMaxStatus(true));
+                minH5Status && setTimeout(() => setWindowInfo({...windowInfo,ish5: true}),500);
             }
         }
     };
@@ -371,10 +349,8 @@ const MainLayout = () => {
             {!mainReducer.mainStatus && <LoginLayout config={loginlayoutInfo} />}
             <div id="frameelement-main" key="frameelement" className={`dark-theme-${mainReducer.darkThemeStatus} ${mainReducer.batteryThemeStatus &&  "batteryTheme"}`} style={{ opacity: mainReducer.mainStatus ? 1 : 0 }}>
                 {
-                    windowStatus ? 
-                    <Taskbar config={tasklayoutInfo} onWindowHeadMoudle={onWindowHeadMoudle} id={windowInfo.id} name={windowInfo.name} icon={windowInfo.icon} />
-                    : 
-                    <Taskbar config={tasklayoutInfo} />
+                    windowStatus ? <Taskbar config={tasklayoutInfo} onWindowHeadMoudle={onWindowHeadMoudle} id={windowInfo.id} name={windowInfo.name} icon={windowInfo.icon} />
+                    : <Taskbar config={tasklayoutInfo} />
                 }
                 <StartUpMedia src={StartUpMusic} />
                 <StartAlertModel opened={mainReducer.startAlert} />
